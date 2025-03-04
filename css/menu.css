@@ -1,0 +1,308 @@
+/* ------------------ HOMEPAGE STYLING ----------------- */
+
+/* Title animation bobbing */
+@keyframes bob {
+    0% {
+        font-size: 145px;
+    }
+    50% {
+        font-size: 155px;
+    }
+    100% {
+        font-size: 145px;
+    }
+}
+
+/* Fade-in animation when user visits this page */
+@keyframes fadeIn {
+    0% {
+        background: black;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+
+/* Fade-out animation as transition to game.html */
+@keyframes fadeOut {
+    0% {
+        visibility: visible;
+    }
+    100% {
+        background: black;
+    }
+}
+
+/* Ensure everything takes 100% of the available space */
+html, body {
+    width: 100%;   
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars during fade */
+}
+
+/* Fade-in animation when user visits this page */
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+    pointer-events: none; /* Allow clicks through when hidden */
+    animation: fadeIn 2s linear forwards;
+}
+
+/* Menu general styling */
+.menu {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    /* Background color */
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* General alignment */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* All text must be white, all items must have a min margin of 10px */
+.menu * {
+    color: white;
+    margin: 10px;
+}
+
+/* Title font styling */
+#title{
+    font-size: 150px;
+    margin-bottom: 0px;
+    font-family: "Jacquard 12", system-ui;
+    animation: bob 3s infinite;
+}
+/* Subtitle font styling */
+#subtitle {
+    margin-top: 0px;
+    font-size: 60px;
+    font-family: "Jacquard 12", system-ui;
+}
+
+/* General levels positioning */
+.levels {
+    margin: 30px;
+}
+/* Level buttons styling */
+.levels * {
+    /* General alignment */
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 30px;
+    height: 100px;
+    min-width: 200px;
+
+    /* Font styling */
+    font-size: 30px;
+    font-family: "Jersey 20", sans-serif;
+
+    /* Button styling */
+    border: 2px white solid;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+
+    /* Remove URL underline */
+    text-decoration: none;
+}
+
+/* Buttons on hover */
+.levels *:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons on disabled */
+.levels *:disabled {
+    cursor: not-allowed;
+    color: rgba(0, 0, 0, 0.5)
+}
+
+/* Other options box styling */
+.otherOptions {
+    position: absolute;
+
+    bottom: 3%;
+    right: 0%;
+    width: 350px;
+    height: 70px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Other options styling (shop, mute, restart, main menu) */
+.otherOptions * {
+    text-align: center;
+    font-family: "Jersey 20", sans-serif;
+    font-size: 25px;
+    margin: 10px;
+}
+
+/* Other button styling */
+#shop,
+#howToPlay,
+#stats {
+    height: 50px;
+    padding: 10px;
+
+    color: white;
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Other button on hover, mouse change to pointer and color changes */
+#shop:hover,
+#howToPlay:hover,
+#stats:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+/* Mute button styling and positioning */
+#mute {
+    width: 50px;
+    height: 50px;
+
+    filter: invert(100%);
+}
+
+/* Mute button on hover */
+#mute:hover {
+    filter: invert(50%);
+    cursor: pointer;
+}
+
+/* Statistics tab styling and positioning */
+.statistics {
+    position: absolute;
+    right: 3%;
+    bottom: 15%;
+
+    width: 200px;
+    height: 250px;
+    padding: 10px;
+
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+    text-align: left !important;
+
+    display: none;
+}
+/* Statistics texts styling */
+.statistics * {
+    font-family: "Jersey 20", sans-serif;
+    font-size: 19px;
+}
+#statsTitle {
+    font-size: 25px;
+}
+
+/* Shop section styling */
+.shop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Shop section children styling */
+.shop * {
+    font-family: "Jersey 20", sans-serif;
+    font-size: 20px;
+}
+
+/* Shop section title styling */
+.shop h1 {
+    font-size: 100px;
+}
+.shop h2 {
+    font-size: 30px;
+}
+
+/* Shop section images styling*/
+.shop img{
+    width: 80px;
+    height: 80px;
+}
+
+/* Shop items styling */
+.items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Each item's inner elements styling */
+.items * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Items buttons styling*/
+.shop button {
+    max-width: 150px;
+    max-height: 50px;
+    padding: 10px;
+
+    color: white;
+    background-color: rgba(0, 255, 251, 0.3);
+
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.shop button:disabled {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: grey;
+    cursor: not-allowed !important;
+}
+
+/* Quite shop button styling*/
+#quitShop {
+    width: 50px;
+    height: 50px;
+
+    position: absolute !important;
+
+    right: 0% !important;
+    top: 0% !important;
+}
+.shop button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+

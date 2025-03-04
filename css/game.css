@@ -1,0 +1,392 @@
+/* ------------------ LEVELS STYLING ----------------- */
+
+/* Ensure everything takes 100% of the available space */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars during fade */
+}
+
+/* Import minecraft font */
+@font-face {
+    font-family: minecraft;
+    src: url("../assets/Minecraft.ttf");
+}
+
+/* Blur animation for background image */
+@keyframes blurIn {
+    100% {
+        backdrop-filter: blur(5px);
+    }
+}
+
+/* Wrong word animation */
+@keyframes shake {
+    0% {
+        background-color: rgba(255, 0, 0, 0.75);
+        transform: translateX(5%);
+    }
+    25% {
+        transform: translateX(-5%);
+    }
+    50% {
+        transform: translateX(5%);
+    }
+    75% {
+        background-color: rgba(255, 255, 255, 0.75);
+        transform: translateX(0%);
+    }
+
+}
+
+/* Fade-in animation when user visits this page */
+@keyframes fadeIn {
+    0% {
+        background: black;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+
+/* Fade-out animation as transition to game.html */
+@keyframes fadeOut {
+    0% {
+        visibility: visible;
+    }
+    100% {
+        background: black;
+    }
+}
+
+/* Rotate animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Fade-in animation when user visits this page */
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+    pointer-events: none; /* Allow clicks through when hidden */
+    animation: fadeIn 2s linear forwards;
+}
+
+/* Add this to reset default browser margins */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Homepage general styling */
+.game {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    /* Background image */
+    background-image: url("../assets/images/countryside.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    animation: blurIn 3s linear forwards;
+
+    position: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Margin of every element in the game must be 5px */
+.game * {
+    margin: 5px;
+}
+
+/* Words falling container styling and positioning*/
+.words {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    height: 90%;
+
+    font-family: minecraft;
+    font-size: 30px;
+    
+    color: white;
+}
+
+/* Background image color filter */
+.colorFilter {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0;
+
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(139, 0, 0, 0.2) 70%, rgb(176, 0, 0) 100%);
+}
+
+/* Main bar (hp container and bottom bar) styling */
+.mainBar {
+    width: 100%;
+    height: 25%;
+
+    position: absolute;
+    position: absolute;
+    left: 50%;
+    bottom: 3%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* HP containers styling and heart alignments */
+.hpContainer {
+    transform: translateY(35px);
+
+    width: 400px;
+
+    text-align: left;
+
+    display: flex;
+    align-items: flex-end; /* Align towards bottom */
+    flex-flow: wrap-reverse; /* Reverse order to make them bottom to top */
+}
+/* Hearts styling */
+.hpContainer * {
+    margin: 2px;
+    text-shadow: 1px 1px 1px black;
+}
+
+/* Player input styling */
+input {
+    width: 500px;
+    height: 30px;
+    padding: 10px;
+
+    font-size: 30px;
+    font-family: "Jersey 20", sans-serif;
+    color: black;
+
+    text-align: center;
+
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+/* Bottom bar styling */
+.bottomBar {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Title font styling */
+#title {
+    transform: translateY(-10%); /* Move title up to remove offset */
+
+    font-family: "Jacquard 12", system-ui;
+    color: white;
+    
+    font-size: 100px;
+    text-shadow: 1px 1px 1px black;
+
+    flex-basis: 0; /* Shrink first to fit the input box */
+    flex-grow: 1; /* Grow then to fill the rest of available space */
+}
+
+/* Stats bar styling and positioning (contains score and total score count) */
+.statsBar {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+
+    height: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+/* Stats bar children styling */
+.statsBar * {
+    font-family: "Jersey 20", sans-serif;
+
+    text-align: left !important;
+    font-size: 35px;
+    color: gold;
+    text-shadow: 1px 1px 1px black;
+}
+
+/* Other options box styling */
+.otherOptions {
+    width: 400px;
+    height: 50px;
+
+    flex-basis: 0; /* Shrink first to fit the input box */
+    flex-grow: 1; /* Grow then to fill the rest of available space */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Other options styling (shop, mute, restart, main menu) */
+.otherOptions * {
+    font-family: "Jersey 20", sans-serif;
+    font-size: 20px;
+    margin: 10px;
+}
+
+/* Mute button styling and positioning */
+#mute {
+    width: 50px;
+    height: 50px;
+
+    filter: invert(100%);
+}
+
+/* Shop, return to main menu and restart styling */
+#returnToMainMenu,
+#restart,
+#shop {
+    height: 50px;
+    padding: 10px;
+
+    color: white;
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Shop, return to main menu button, restart button on hover*/
+#returnToMainMenu:hover,
+#restart:hover,
+#shop:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+/* Mute button on hover */
+#mute:hover {
+    filter: invert(50%);
+    cursor: pointer;
+}
+
+
+/* Shop section styling */
+.shop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white !important;
+
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Shop section children styling */
+.shop * {
+    font-family: "Jersey 20", sans-serif;
+    font-size: 20px;
+}
+
+/* Shop section title styling */
+.shop h1 {
+    font-size: 100px;
+}
+.shop h2 {
+    font-size: 30px;
+}
+
+/* Shop section images styling*/
+.shop img{
+    width: 80px;
+    height: 80px;
+}
+
+/* Shop items styling */
+.items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Each item's inner elements styling */
+.items * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Items buttons styling*/
+.shop button {
+    max-width: 150px;
+    max-height: 50px;
+    padding: 10px;
+
+    color: white;
+    background-color: rgba(0, 255, 251, 0.3);
+
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.shop button:disabled {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: grey;
+    cursor: not-allowed !important;
+}
+
+/* Quite shop button styling*/
+#quitShop {
+    width: 50px;
+    height: 50px;
+
+    position: absolute !important;
+
+    right: 0% !important;
+    top: 0% !important;
+}
+.shop button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}

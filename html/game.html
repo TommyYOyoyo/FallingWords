@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess the Number!</title>
 
-    <link rel="icon" type="image/x-icon" href="../assets/images/sunglasses.png">
+    <link rel="icon" type="image/x-icon" href="../assets/images/icon.png">
 
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,35 +13,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jersey+20&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/lvls.css">
+    <link rel="stylesheet" href="../css/game.css">
 </head>
-<body class="lvls">
+<body class="game">
+
+    <div class="colorFilter"></div>
+
     <div id="mainDiv">
-        <!--Title-->
-        <h1 id="title">Easy</h1>
+        <!--Score and coins counter-->
+        <div class="statsBar">
+            <h2 id="currentScore">Score: 0</h2>
+            <h2 id="totalScore">Owned scores: 0</h2>
+        </div>
 
-        <!--Best result counter-->
-        <h2 id="bestCount">Top Score: 0</h2>
+        <!--Game rectangle-->
+        <div class="words"></div>
+    </div>
 
-        <!--Falling words appear here-->
-        <canvas id="canvas"></canvas>
-
-        <!--Falling words answer input-->
-        <input type="text" id="answer" placeholder="Type a number here...">
-
+    <div class="mainBar">
         <!--Health bar container-->
-        <div class="healthBarContainer">
-            <progress id="healthbar" max="100" value="100"></progress>
-            <label id="healthValue">100%</label>
+        <div class="hpContainer"></div>
+
+        <!--Game bottom bar-->
+        <div class="bottomBar">
+            <!--Title-->
+            <h1 id="title">Level 1</h1>
+
+            <!--Falling words answer input-->
+            <input type="text" id="input" placeholder="Type here...">
+
+            <!--Return to main menu button, restart button and mute button-->
+            <div class="otherOptions">
+                <button id="shop">Shop</button>
+                <button id="returnToMainMenu">Main Menu</button>
+                <button id="restart">Restart</button>
+                <img id="mute" src="../assets/images/unmute.png">
+            </div>
         </div>
     </div>
 
-    <!--Return to main menu button, restart button and mute button-->
-    <div class="otherOptions">
-        <button id="returnToMainMenu">Main Menu</button>
-        <button id="restart">Restart</button>
-        <img id="mute" src="../assets/images/mute.png">
+    <!--Shop section-->
+    <div class="shop">
+        <h1>Score shop</h1>
+        <div class="items">
+            <!--Golden apple that restores 10 HP-->
+            <div class="goldenApple">
+                <h2 id="goldenAppleH2">Golden Apple (0/2)</h2>
+                <p>Restores 5 HP. Press 1 to use.</p>
+                <img src="../assets/images/goldenApple.webp">
+                <button id="buyGoldenApple">Buy (25 score)</button>
+            </div>
+            <!--Potion that slows down fall speed-->
+            <div class="slowPotion">
+                <h2 id="slowPotionH2">Slow Potion (0/2)</h2>
+                <p>Slows down all words by 2x, lasts 10 seconds. Press 2 to use.</p>
+                <img src="../assets/images/slowPotion.webp">
+                <button id="buySlowPotion">Buy (25 score)</button>
+            </div>
+            <!--TNT that erases all words-->
+            <div class="TNT">
+                <h2 id="TNTH2">TNT (0/5)</h2>
+                <p>Destroys all words on the screen. Press 3 to use.</p>
+                <img src="../assets/images/TNT.webp">
+                <button id="buyTNT">Buy (50 score)</button>
+            </div>
+            <!--God potion that grants invincibility for 60 seconds-->
+            <div class="godPotion">
+                <h2 id="godPotionH2">God Potion (0/1)</h2>
+                <p>Grants invincibility for 60 seconds. Press 4 to use.</p>
+                <img src="../assets/images/godPotion.webp">
+                <button id="buyGodPotion">Buy (200 score)</button>
+            </div>
+        </div>
+        <label id="scoreCounter">You have 0 score.</label>
+        <button id="quitShop">X</button>
     </div>
+
+    <!--Fade-in/out animation div-->
+    <div id="fade"></div>
 
     <!--JS modules-->
     <script src="../js/game.js" type="module"></script>
