@@ -51,7 +51,7 @@ console.log("LEVEL: "+level);
 
 // Display score
 currentScoreDisplay.innerHTML = `Score: ${score}`;
-totalScoreDisplay.innerHTML = `Total score: ${totalScore}`;
+totalScoreDisplay.innerHTML = `Owned scores: ${totalScore}`;
 
 // Initialize the level
 initLevel(level);
@@ -366,7 +366,7 @@ function initLevel(level) {
     }
 
     // Display total score
-    totalScoreDisplay.innerHTML = `Total score: ${totalScore}`;
+    totalScoreDisplay.innerHTML = `Owned scores: ${totalScore}`;
 
     switch (level) {
         // Easy
