@@ -526,6 +526,8 @@ function handlePowerUps(powerUps) {
                 // Remove every word from the screen
                 explosionSound.play();
                 words.forEach((element) => {
+                    // Give user score for each word removed
+                    increaseScore(1);
                     element.remove();
                 });
                 words = [];
