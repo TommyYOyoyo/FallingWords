@@ -24,16 +24,16 @@
 
     <!--Level selector, although it's single page application for them all-->
     <div class="levels">
-        <button id="1l">Level 1</button>
-        <button id="2l">Level 2</button>
-        <button id="3l">Level 3</button>
+        <button id="1l" onclick="clickSound()">Level 1</button>
+        <button id="2l" onclick="clickSound()">Level 2</button>
+        <button id="3l" onclick="clickSound()">Level 3</button>
     </div>
 
     <!--Mute music button-->
     <div class="otherOptions">
-        <button id="shop">Shop</button>
-        <button id="stats">Stats</button>
-        <img id="mute" src="../assets/images/unmute.png">
+        <button id="shop" onclick="clickSound()">Shop</button>
+        <button id="stats" onclick="clickSound()">Stats</button>
+        <img id="mute" src="../assets/images/unmute.png" onclick="clickSound()">
     </div>
 
     <!--Stats-->
@@ -56,32 +56,32 @@
                 <h2 id="goldenAppleH2">Golden Apple (0/2)</h2>
                 <p>Restores 5 HP. Press 1 to use.</p>
                 <img src="../assets/images/goldenApple.webp">
-                <button id="buyGoldenApple">Buy (25 score)</button>
+                <button id="buyGoldenApple" onclick="clickSound()">Buy (25 score)</button>
             </div>
             <!--Potion that slows down fall speed-->
             <div class="slowPotion">
                 <h2 id="slowPotionH2">Slow Potion (0/2)</h2>
                 <p>Slows down all words by 2x, lasts 10 seconds. Press 2 to use.</p>
                 <img src="../assets/images/slowPotion.webp">
-                <button id="buySlowPotion">Buy (25 score)</button>
+                <button id="buySlowPotion" onclick="clickSound()">Buy (25 score)</button>
             </div>
             <!--TNT that erases all words-->
             <div class="TNT">
                 <h2 id="TNTH2">TNT (0/5)</h2>
                 <p>Destroys all words on the screen. Press 3 to use.</p>
                 <img src="../assets/images/TNT.webp">
-                <button id="buyTNT">Buy (50 score)</button>
+                <button id="buyTNT" onclick="clickSound()">Buy (50 score)</button>
             </div>
             <!--God potion that grants invincibility for 60 seconds-->
             <div class="godPotion">
                 <h2 id="godPotionH2">God Potion (0/1)</h2>
                 <p>Grants invincibility for 60 seconds. Press 4 to use.</p>
                 <img src="../assets/images/godPotion.webp">
-                <button id="buyGodPotion">Buy (200 score)</button>
+                <button id="buyGodPotion" onclick="clickSound()">Buy (200 score)</button>
             </div>
         </div>
         <label id="scoreCounter">You have 0 score.</label>
-        <button id="quitShop">X</button>
+        <button id="quitShop" onclick="clickSound()">X</button>
     </div>
 
     <!--Fade-in/out animation div-->
@@ -89,5 +89,12 @@
 
     <!--JS module-->
     <script src="../js/main.js" type="module"></script>
+    <script>
+        // Play clicking sound
+        function clickSound() {
+            const clickSound = new Audio("../assets/sounds/click.mp3");
+            clickSound.play();
+        }
+    </script>
 </body>
 </html>

@@ -168,9 +168,12 @@ function inputHandler() {
 }
 
 // Increase current&global score by one and update score display
-function increaseScore() {
-    score++;
-    totalScore++;
+function increaseScore(scoreCount) {
+    // Get newest total score
+    totalScore = parseInt(localStorage.getItem("totalScore"));
+
+    score += scoreCount;
+    totalScore += scoreCount;
 
     currentScoreDisplay.innerHTML = `Score: ${score}`;
     totalScoreDisplay.innerHTML = `Owned scores: ${totalScore}`;
@@ -225,7 +228,7 @@ function checkWord(input) {
         if (words[i].textContent == input.value) {
             words[i].remove(); // Wipe the word from the screen
             words.splice(i, 1); // Remove the word from the word list
-            increaseScore();
+            increaseScore(1);
 
             // Empty the input box
             input.value = "";
@@ -362,7 +365,7 @@ function initLevel(level) {
         localStorage.setItem("totalScore", 0)
     } else {
         // Grab the total score from local storage
-        totalScore = localStorage.getItem("totalScore");
+        totalScore = parseInt(localStorage.getItem("totalScore"));
     }
 
     // Display total score
